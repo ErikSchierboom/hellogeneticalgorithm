@@ -45,7 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HelloGeneticAlgoritmTests.fs" />
+    <Compile Include="StringGeneticAlgoritmTests.fs" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
