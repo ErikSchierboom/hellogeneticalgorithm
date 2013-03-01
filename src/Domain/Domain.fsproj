@@ -41,7 +41,10 @@
     <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="StringGeneticAlgoritm.fs" />
+    <Compile Include="Strings.fs" />
+    <Compile Include="Individuals.fs" />
+    <Compile Include="Mutation.fs" />
+    <Compile Include="Selection.fs" />
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>

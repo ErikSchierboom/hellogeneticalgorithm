@@ -49,8 +49,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="StringGeneticAlgoritmTests.fs" />
     <None Include="packages.config" />
+    <Compile Include="StringsTests.fs" />
+    <Compile Include="IndividualsTests.fs" />
+    <Compile Include="MutationTests.fs" />
+    <Compile Include="SelectionTests.fs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\Domain\Domain.fsproj">
