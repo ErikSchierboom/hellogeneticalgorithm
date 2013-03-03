@@ -11,7 +11,9 @@ TestResults
 # User-specific files
 *.suo
 *.user
+*.userprefs
 *.sln.docstates
+*.DS_Store
 
 # Build results
 [Dd]ebug/
