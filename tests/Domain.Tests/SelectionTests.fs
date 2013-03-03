@@ -30,3 +30,25 @@ type SelectionTests() =
     [<Fact>]  
     member this.fitnessWithNullTargetThrowsArgumentNullException() =
         Assert.Throws<ArgumentNullException>(fun() -> fitness null "hello world" |> ignore)
+
+    [<Fact>]  
+    member this.tournamentWillSelectSpecifiedNumberOfIndividuals() =
+        let selectedIndividuals = tournament 2 ["hello"; "there"; "world"]
+        Assert.Equal(2, List.length selectedIndividuals)
+
+    [<Fact>]  
+    member this.tournamentWillSelectUniqueIndividuals() =
+        let selectedIndividuals = tournament 2 ["hello"; "there"; "world"]        
+        Assert.Equal(2, selectedIndividuals |> Seq.distinct |> Seq.length)
+
+    [<Fact>]  
+    member this.tournamentWithSizeIsZeroThrowsArgumentException() =
+        Assert.Throws<ArgumentException>(fun() -> tournament 0 ["hello"] |> ignore)
+
+    [<Fact>]  
+    member this.tournamentWithSizeIsLessThanZeroThrowsArgumentException() =
+        Assert.Throws<ArgumentException>(fun() -> tournament -1 ["hello"] |> ignore)
+
+    [<Fact>]  
+    member this.tournamentWithSizeIsGreaterThanSizeOfPopulationThrowsArgumentException() =
+        Assert.Throws<ArgumentException>(fun() -> tournament 2 ["hello"] |> ignore)
