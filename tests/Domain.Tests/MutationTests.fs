@@ -45,8 +45,8 @@ type MutationTests() =
     [<InlineData(-1)>]
     [<InlineData(5)>]
     [<InlineData(6)>]
-    member this.mutateCharacterAtIndexWithIndexIsInvalidThrowsArgumentException(index) =
-        Assert.Throws<ArgumentException>(fun() -> mutateCharacterAtIndex index "hello" |> ignore)
+    member this.mutateCharacterAtIndexWithIndexIsInvalidThrowsIndexOutOfRangeException(index) =
+        Assert.Throws<IndexOutOfRangeException>(fun() -> mutateCharacterAtIndex index "hello" |> ignore)
 
     [<Fact>]  
     member this.mutateWithProbabilityIsOneMutatesIndividual() =

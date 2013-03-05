@@ -1,11 +1,9 @@
 ﻿namespace Domain
 
-open Domain.Strings
+open Domain.Characters
 open System
 
 module Selection =
-
-    let random = new Random()
     
     let fitness (target:string) (individual:string) =       
         if target = null then raise (ArgumentNullException("individual"))
@@ -15,4 +13,5 @@ module Selection =
 
     let tournament size population =
         if size < 1 || size > (List.length population) then raise (ArgumentException("size"))        
+        population
             
