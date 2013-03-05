@@ -32,23 +32,42 @@ type SelectionTests() =
         Assert.Throws<ArgumentNullException>(fun() -> fitness null "hello world" |> ignore)
 
     [<Fact>]  
-    member this.tournamentWillSelectSpecifiedNumberOfIndividuals() =
-        let selectedIndividuals = tournament 2 ["hello"; "there"; "world"]
-        Assert.Equal(2, List.length selectedIndividuals)
+    member this.populationWithFitnessReturnsPopulationWithFitnessCalculatedForAllIndividuals() =
+        let fitnessTest = fitness "hello world"
+        let populationWithFitness = populationWithFitness fitnessTest ["hallo world"; "hello world"; "hilli warld"]        
+        Assert.True(["hallo world", 0.999938963912413; "hello world", 1.0; "hilli warld", 0.999633783474479] = populationWithFitness)
+        
+        
+//    [<Fact>]  
+//    member this.tournamentRoundWillSelectMostFitIndividual() =
+//        let selectedIndividuals = tournamentRound 2 ["hello"; "there"; "world"]        
+//        Assert.Equal(2, selectedIndividuals |> Seq.distinct |> Seq.length)
 
     [<Fact>]  
-    member this.tournamentWillSelectUniqueIndividuals() =
-        let selectedIndividuals = tournament 2 ["hello"; "there"; "world"]        
-        Assert.Equal(2, selectedIndividuals |> Seq.distinct |> Seq.length)
+    member this.tournamentRoundWithSizeIsZeroThrowsArgumentOutOfRangeException() =
+        Assert.Throws<ArgumentOutOfRangeException>(fun() -> tournamentRound 0 ["hello"] |> ignore)
 
     [<Fact>]  
-    member this.tournamentWithSizeIsZeroThrowsArgumentException() =
-        Assert.Throws<ArgumentException>(fun() -> tournament 0 ["hello"] |> ignore)
+    member this.tournamentRoundWithSizeIsLessThanZeroThrowsArgumentOutOfRangeException() =
+        Assert.Throws<ArgumentOutOfRangeException>(fun() -> tournamentRound -1 ["hello"] |> ignore)
 
     [<Fact>]  
-    member this.tournamentWithSizeIsLessThanZeroThrowsArgumentException() =
-        Assert.Throws<ArgumentException>(fun() -> tournament -1 ["hello"] |> ignore)
+    member this.tournamentRoundWithSizeIsGreaterThanSizeOfPopulationThrowsArgumentOutOfRangeException() =
+        Assert.Throws<ArgumentOutOfRangeException>(fun() -> tournamentRound 2 ["hello"] |> ignore)
 
     [<Fact>]  
-    member this.tournamentWithSizeIsGreaterThanSizeOfPopulationThrowsArgumentException() =
-        Assert.Throws<ArgumentException>(fun() -> tournament 2 ["hello"] |> ignore)
+    member this.tournamentWillReturnPopulationOfEqualSize() =
+        let selectedPopulation = tournament 2 ["hello"; "there"; "world"]
+        Assert.Equal(3, List.length selectedPopulation)
+
+    [<Fact>]  
+    member this.tournamentWithSizeIsZeroThrowsArgumentOutOfRangeException() =
+        Assert.Throws<ArgumentOutOfRangeException>(fun() -> tournament 0 ["hello"] |> ignore)
+
+    [<Fact>]  
+    member this.tournamentWithSizeIsLessThanZeroThrowsArgumentOutOfRangeException() =
+        Assert.Throws<ArgumentOutOfRangeException>(fun() -> tournament -1 ["hello"] |> ignore)
+
+    [<Fact>]  
+    member this.tournamentWithSizeIsGreaterThanSizeOfPopulationThrowsArgumentOutOfRangeException() =
+        Assert.Throws<ArgumentOutOfRangeException>(fun() -> tournament 2 ["hello"] |> ignore)

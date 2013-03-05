@@ -1,8 +1,11 @@
 ﻿namespace Domain
 
 open System
+open Random
 
-module Strings =
+module Characters =
+
+    let generateCharacter maxCharValue = Convert.ToChar(Random.random.Next(maxCharValue + 1))
 
     let numericCharacterValues (str:string) =
         if str = null then raise (ArgumentNullException("str"))

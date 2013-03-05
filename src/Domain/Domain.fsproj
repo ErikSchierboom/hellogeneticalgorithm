@@ -41,7 +41,8 @@
     <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Strings.fs" />
+    <Compile Include="Random.fs" />
+    <Compile Include="Characters.fs" />
     <Compile Include="Individuals.fs" />
     <Compile Include="Mutation.fs" />
     <Compile Include="Crossover.fs" />
