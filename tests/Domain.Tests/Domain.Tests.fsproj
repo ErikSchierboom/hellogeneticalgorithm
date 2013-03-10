@@ -53,11 +53,13 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Compile Include="RandomTests.fs" />
+    <Compile Include="ListTests.fs" />
     <Compile Include="CharactersTests.fs" />
-    <Compile Include="IndividualsTests.fs" />
     <Compile Include="MutationTests.fs" />
     <Compile Include="CrossoverTests.fs" />
     <Compile Include="SelectionTests.fs" />
+    <Compile Include="PopulationTests.fs" />
+    <Compile Include="SimulationTests.fs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\Domain\Domain.fsproj">

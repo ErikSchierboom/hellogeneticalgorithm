@@ -42,11 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Random.fs" />
+    <Compile Include="List.fs" />
     <Compile Include="Characters.fs" />
-    <Compile Include="Individuals.fs" />
     <Compile Include="Mutation.fs" />
     <Compile Include="Crossover.fs" />
     <Compile Include="Selection.fs" />
+    <Compile Include="Population.fs" />
+    <Compile Include="Simulation.fs" />
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
