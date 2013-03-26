@@ -1,4 +1,4 @@
-﻿namespace Domain.Tests
+﻿namespace StudioDonder.HelloGeneticAlgorithm.Domain.Tests
 
 open System
 open Xunit

@@ -1,6 +1,6 @@
-﻿namespace Domain
+﻿namespace StudioDonder.HelloGeneticAlgorithm.Domain
 
-open Domain.Fitness
+open StudioDonder.HelloGeneticAlgorithm.Domain.Fitness
 open Random
 open System
 

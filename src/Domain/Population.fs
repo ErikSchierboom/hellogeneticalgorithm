@@ -1,4 +1,4 @@
-﻿namespace Domain
+﻿namespace StudioDonder.HelloGeneticAlgorithm.Domain
 
 open Characters
 open System

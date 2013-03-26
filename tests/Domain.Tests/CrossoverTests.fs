@@ -1,6 +1,6 @@
-﻿namespace Domain.Tests
+﻿namespace StudioDonder.HelloGeneticAlgorithm.Domain.Tests
 
-open Domain.Crossover
+open StudioDonder.HelloGeneticAlgorithm.Domain.Crossover
 open System
 open Xunit
 open Xunit.Extensions

@@ -1,12 +1,9 @@
-﻿// Learn more about F# at http://fsharp.net
-// See the 'F# Tutorial' project for more help.
-
-open Domain.Crossover
-open Domain.Mutation
-open Domain.Selection
-open Domain.Population
-open Domain.Fitness
-open Domain.Simulation
+﻿open StudioDonder.HelloGeneticAlgorithm.Domain.Crossover
+open StudioDonder.HelloGeneticAlgorithm.Domain.Mutation
+open StudioDonder.HelloGeneticAlgorithm.Domain.Selection
+open StudioDonder.HelloGeneticAlgorithm.Domain.Population
+open StudioDonder.HelloGeneticAlgorithm.Domain.Fitness
+open StudioDonder.HelloGeneticAlgorithm.Domain.Simulation
 open System
 
 let printGeneration index generation =
@@ -22,7 +19,7 @@ let printGenerations target size numberOfGenerations generations =
 
 [<EntryPoint>]
 let main argv = 
-    let target = "jeltine"
+    let target = "erik"
     let size = 20
     let numberOfGenerations = 500
     let generateMethod = generate target.Length size

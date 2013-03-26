@@ -6,7 +6,7 @@ let takeRandom size list =
     if size < 1 || size > (List.length list) then raise (ArgumentOutOfRangeException("size")) 
     match list with
     | [] -> failwith "Cannot call List.takeRandom on empty list."
-    | x -> List.map (fun elem -> elem, Domain.Random.random.Next()) list
+    | x -> List.map (fun elem -> elem, StudioDonder.HelloGeneticAlgorithm.Domain.Random.random.Next()) list
            |> List.sortBy snd
            |> Seq.take size           
            |> List.ofSeq

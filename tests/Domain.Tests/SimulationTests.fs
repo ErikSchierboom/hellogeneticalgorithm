@@ -1,11 +1,11 @@
-﻿namespace Domain.Tests
+﻿namespace StudioDonder.HelloGeneticAlgorithm.Domain.Tests
 
-open Domain.Population
-open Domain.Crossover
-open Domain.Selection
-open Domain.Mutation
-open Domain.Fitness
-open Domain.Simulation
+open StudioDonder.HelloGeneticAlgorithm.Domain.Population
+open StudioDonder.HelloGeneticAlgorithm.Domain.Crossover
+open StudioDonder.HelloGeneticAlgorithm.Domain.Selection
+open StudioDonder.HelloGeneticAlgorithm.Domain.Mutation
+open StudioDonder.HelloGeneticAlgorithm.Domain.Fitness
+open StudioDonder.HelloGeneticAlgorithm.Domain.Simulation
 open System
 open Xunit
 open Xunit.Extensions

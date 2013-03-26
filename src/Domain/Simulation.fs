@@ -1,8 +1,8 @@
-﻿namespace Domain
+﻿namespace StudioDonder.HelloGeneticAlgorithm.Domain
 
-open Domain.Population
-open Domain.Fitness
-open Domain.Selection
+open StudioDonder.HelloGeneticAlgorithm.Domain.Population
+open StudioDonder.HelloGeneticAlgorithm.Domain.Fitness
+open StudioDonder.HelloGeneticAlgorithm.Domain.Selection
 
 open Characters
 open System

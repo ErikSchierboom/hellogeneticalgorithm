@@ -1,6 +1,6 @@
-﻿namespace Domain
+﻿namespace StudioDonder.HelloGeneticAlgorithm.Domain
 
-open Domain.Characters
+open StudioDonder.HelloGeneticAlgorithm.Domain.Characters
 open System
 open Random
 
