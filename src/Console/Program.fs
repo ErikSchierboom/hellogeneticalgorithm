@@ -10,11 +10,8 @@ open Domain.Simulation
 open System
 
 let printGeneration index generation =
-    let mostFitIndivualOfGeneration = mostFitIndivdual generation
-
-    if index % 10 = 0 then
-        printfn "Generation %d: avg (%f), min (%f), max (%f)" index (averageFitness generation) (minimumFitness generation) (maximumFitness generation)
-        printfn "Most fit individual: %s (%f)" (fst mostFitIndivualOfGeneration) (snd mostFitIndivualOfGeneration)
+    let (individual, fitness) = mostFitIndivdual generation
+    printfn "Generation %d: %s (%f)" (index + 1) individual fitness
 
 let printGenerations target size numberOfGenerations generations =
     printfn "Target: %s" target
@@ -25,7 +22,7 @@ let printGenerations target size numberOfGenerations generations =
 
 [<EntryPoint>]
 let main argv = 
-    let target = "hello"
+    let target = "jeltine"
     let size = 20
     let numberOfGenerations = 500
     let generateMethod = generate target.Length size

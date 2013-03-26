@@ -1,5 +1,6 @@
 ﻿namespace Domain
 
+open Domain.Characters
 open System
 open Random
 
@@ -10,7 +11,9 @@ module Mutation =
         match c with
         | '\000' -> '\001' 
         | '\127' -> '~' 
-        | _      -> if meetsProbability 0.5 then char (Convert.ToUInt16(c) - uint16 1) else char (Convert.ToUInt16(c) + uint16 1)
+        | _      -> if meetsProbability 0.5 
+                    then char (numericCharacterValue c - uint16 1) 
+                    else char (numericCharacterValue c + uint16 1)
 
     let mutateCharacterAtIndex index (str:string) =
         if str = null then raise (ArgumentNullException("str"))

@@ -34,7 +34,7 @@ type SimulationTests() =
         Assert.True(List.forall (fun elem -> List.length elem = List.length generation) generations)
 
     [<Fact>]  
-    member this.simulationRoundsReturnsSpecifiedNumberOfGenerations() =        
+    member this.simulationRoundsReturnsWhenSolutionHasBeenFound() =        
         let numberOfGenerations = 50
         let crossoverMethod = onePoint 3
         let mutationMethod = mutate 0.05
@@ -42,17 +42,18 @@ type SimulationTests() =
         let selectionMethod = tournament 3
         let generation = ["hello", 1.0f; "there", 0.5f; "world", 0.2f; "yeeha", 0.1f]
         let generations = simulationRounds crossoverMethod mutationMethod fitnessMethod selectionMethod numberOfGenerations generation
-        Assert.Equal<int>(numberOfGenerations, List.length generations)
+        Assert.Equal<int>(1, List.length generations)
 
     [<Fact>]  
-    member this.simulationRoundsWithSizeIsOneDoesNotThrowException() =        
-        let numberOfGenerations = 1
+    member this.simulationRoundsDoesNotReturnMoreThanSpecifiedNumberOfGenerations() =        
+        let numberOfGenerations = 3
         let crossoverMethod = onePoint 3
         let mutationMethod = mutate 0.05
-        let fitnessMethod = fitness "hello"        
+        let fitnessMethod = fitness "zzzzz"        
         let selectionMethod = tournament 3
-        let generation = ["hello", 1.0f; "there", 0.5f; "world", 0.2f; "yeeha", 0.1f]        
-        Assert.DoesNotThrow(fun() -> simulationRounds crossoverMethod mutationMethod fitnessMethod selectionMethod numberOfGenerations generation |> ignore)
+        let generation = ["aaaaa", 0.1f; "bbbbb", 0.2f; "ccccc", 0.3f; "ddddd", 0.4f]
+        let generations = simulationRounds crossoverMethod mutationMethod fitnessMethod selectionMethod numberOfGenerations generation
+        Assert.True(List.length generations <= numberOfGenerations)
 
     [<Theory>]
     [<InlineData(0)>]

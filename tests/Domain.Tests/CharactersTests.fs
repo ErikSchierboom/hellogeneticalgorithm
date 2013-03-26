@@ -18,6 +18,18 @@ type CharactersTests() =
         Assert.True(characters |> Seq.distinct |> Seq.length > 1)
 
     [<Fact>]  
+    member this.charactersListReturnsCharactersAsList() =
+        Assert.True(['h'; 'e'; 'l'; 'l'; 'o'] = charactersList "hello")
+
+    [<Fact>]  
+    member this.charactersListWithNullStringThrowsArgumentNullException() =
+        Assert.Throws<ArgumentNullException>(fun() -> charactersList null |> ignore)
+
+    [<Fact>]  
+    member this.numericCharacterValueReturnsCorrectCharacterValue() =
+        Assert.Equal<uint16>(uint16 104, numericCharacterValue 'h')
+
+    [<Fact>]  
     member this.numericCharacterValuesReturnsCorrectCharacterValues() =
         Assert.True([uint16 104; uint16 101; uint16 108; uint16 108; uint16 111] = numericCharacterValues "hello")
 

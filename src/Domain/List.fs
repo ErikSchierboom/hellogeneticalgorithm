@@ -18,4 +18,5 @@ let rec partitionBySize size list =
     | _  ->
         if size < 1 || size > (List.length list) then raise (ArgumentOutOfRangeException("size")) 
         if not (List.length list % size = 0) then raise (ArgumentException("The list must have a length that is a multiple of size."))            
-        (Seq.take size list |> List.ofSeq) :: partitionBySize size (Seq.skip size list |> List.ofSeq)
+        let partition = Seq.take size list |> List.ofSeq
+        partition :: partitionBySize size (Seq.skip size list |> List.ofSeq)

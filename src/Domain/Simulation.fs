@@ -15,9 +15,14 @@ module Simulation =
        calculateFitnessForPopulation fitness children       
 
    let simulationRounds crossover mutation fitness selection numberOfGenerations generation =     
-       if numberOfGenerations < 1 then raise (ArgumentOutOfRangeException("numberOfGenerations"))         
-       let secondGeneration = simulationRound crossover mutation fitness selection generation
-       List.fold (fun acc elem -> simulationRound crossover mutation fitness selection (List.head acc) :: acc) [secondGeneration] [2..numberOfGenerations]
+       if numberOfGenerations < 1 then raise (ArgumentOutOfRangeException("numberOfGenerations"))
+       let rec simulationRoundAccumulator numberOfGenerations generations =
+           if numberOfGenerations <= 1 || maximumFitness (List.head generations) >= 1.0f then generations
+           else 
+               let newGeneration = simulationRound crossover mutation fitness selection (List.head generations)
+               simulationRoundAccumulator (numberOfGenerations - 1) (newGeneration :: generations)
+            
+       simulationRoundAccumulator numberOfGenerations [generation]
 
    let simulate crossover mutation fitness selection generate numberOfGenerations = 
        generate 
