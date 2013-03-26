@@ -1,6 +1,8 @@
 ﻿namespace Domain
 
 open Domain.Population
+open Domain.Fitness
+open Domain.Selection
 
 open Characters
 open System
@@ -8,15 +10,17 @@ open System
 module Simulation =
 
    let simulationRound crossover mutation fitness selection generation =        
-       let parents = selection fitness generation
-       evolve crossover mutation parents
+       let parents = selection generation
+       let children = evolve crossover mutation (List.map fst parents)
+       calculateFitnessForPopulation fitness children       
 
-   let simulationRounds crossover mutation fitness selection generation numberOfRounds =        
-       List.fold (fun acc elem -> 
-            match acc with
-            | []   -> simulationRound crossover mutation fitness selection generation
-            | x::xs -> simulationRound crossover mutation fitness selection x) [] [1..numberOfRounds]
+   let simulationRounds crossover mutation fitness selection numberOfGenerations generation =     
+       if numberOfGenerations < 1 then raise (ArgumentOutOfRangeException("numberOfGenerations"))         
+       let secondGeneration = simulationRound crossover mutation fitness selection generation
+       List.fold (fun acc elem -> simulationRound crossover mutation fitness selection (List.head acc) :: acc) [secondGeneration] [2..numberOfGenerations]
 
-   let simulate crossover mutation fitness selection generate size numberOfRounds = 
-       let population = generate size
-       simulationRounds crossover mutation fitness selection population numberOfRounds
+   let simulate crossover mutation fitness selection generate numberOfGenerations = 
+       generate 
+       |> calculateFitnessForPopulation fitness
+       |> simulationRounds crossover mutation fitness selection numberOfGenerations
+       |> List.rev

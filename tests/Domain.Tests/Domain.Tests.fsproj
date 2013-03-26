@@ -57,8 +57,9 @@
     <Compile Include="CharactersTests.fs" />
     <Compile Include="MutationTests.fs" />
     <Compile Include="CrossoverTests.fs" />
-    <Compile Include="SelectionTests.fs" />
     <Compile Include="PopulationTests.fs" />
+    <Compile Include="FitnessTests.fs" />
+    <Compile Include="SelectionTests.fs" />
     <Compile Include="SimulationTests.fs" />
   </ItemGroup>
   <ItemGroup>
