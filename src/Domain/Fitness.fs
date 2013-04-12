@@ -15,7 +15,7 @@ module Fitness =
     let calculateFitnessForPopulation fitness population =
         List.map (fun elem -> elem, fitness elem) population
 
-    let mostFitIndivdual (populationWithFitness: ('a * float32) list) =
+    let mostFitIndividual (populationWithFitness: ('a * float32) list) =
         List.maxBy snd populationWithFitness
 
     let averageFitness (populationWithFitness: ('a * float32) list) =

@@ -7,7 +7,7 @@ open StudioDonder.HelloGeneticAlgorithm.Domain.Simulation
 open System
 
 let printGeneration index generation =
-    let (individual, fitness) = mostFitIndivdual generation
+    let (individual, fitness) = mostFitIndividual generation
     printfn "Generation %d: %s (%f)" (index + 1) individual fitness
 
 let printGenerations target size numberOfGenerations generations =

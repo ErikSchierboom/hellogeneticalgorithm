@@ -38,8 +38,8 @@ type FitnessTests() =
         Assert.True(["hallo world", 0.9999389639f; "hello world", 1.0f; "hilli warld", 0.9996337835f] = population)
 
     [<Fact>]  
-    member this.mostFitIndivdualReturnsIndividualWithHighestFitness() =                
-        Assert.True(("hello", 0.8f) = mostFitIndivdual ["hello", 0.8f; "world", 0.2f; "holla", 0.4f])
+    member this.mostFitIndividualReturnsIndividualWithHighestFitness() =                
+        Assert.True(("hello", 0.8f) = mostFitIndividual ["hello", 0.8f; "world", 0.2f; "holla", 0.4f])
 
     [<Fact>]  
     member this.averageFitnessReturnsAverageFitnessOfPopulation() =                
