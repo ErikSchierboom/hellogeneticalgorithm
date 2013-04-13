@@ -4,4 +4,4 @@ This project contains an implementation of a [generic algorithm](http://en.wikip
 To make this project slightly more interesting, we have made the functionality available from a console application (not so hard) and from an ASP.NET MVC application. We have tried to use F# wherever we can use in the ASP.NET MVC application.
 
 ## License
-[Apache License 2.0](https://github.com/studio-donder/framework-dotnet/blob/master/LICENSE.md)
+[Apache License 2.0](LICENSE.md)
