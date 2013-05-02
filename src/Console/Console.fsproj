@@ -48,9 +48,11 @@
     <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Output.fs" />
+    <Compile Include="Input.fs" />
     <Compile Include="Program.fs" />
     <None Include="App.config" />
-    <None Include="packages.config" />
+    <None Include="packages.config" />    
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.fsproj">
