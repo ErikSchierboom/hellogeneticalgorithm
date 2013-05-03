@@ -26,7 +26,8 @@ module Main =
         let optionPopulationSize = readPopulationSize        
         let optionNumberOfGenerations = readNumberOfGenerations
 
-        if optionTarget = None || optionPopulationSize = None || optionNumberOfGenerations = None then -1
+        if optionTarget = None || optionPopulationSize = None || optionNumberOfGenerations = None then 
+            -1
         else
             let generations = runSimulation optionTarget.Value optionPopulationSize.Value optionNumberOfGenerations.Value
             printGenerations optionTarget.Value optionPopulationSize.Value optionNumberOfGenerations.Value generations
