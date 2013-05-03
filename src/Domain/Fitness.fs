@@ -1,6 +1,6 @@
 ﻿namespace StudioDonder.HelloGeneticAlgorithm.Domain
 
-open StudioDonder.HelloGeneticAlgorithm.Domain.Characters
+open Characters
 open Random
 open System
 
@@ -15,14 +15,7 @@ module Fitness =
     let calculateFitnessForPopulation fitness population =
         List.map (fun elem -> elem, fitness elem) population
 
-    let mostFitIndividual (populationWithFitness: ('a * float32) list) =
-        List.maxBy snd populationWithFitness
-
-    let averageFitness (populationWithFitness: ('a * float32) list) =
-        List.average (List.map snd populationWithFitness)
-
-    let maximumFitness (populationWithFitness: ('a * float32) list) =
-        List.max (List.map snd populationWithFitness)
-
-    let minimumFitness (populationWithFitness: ('a * float32) list) =
-        List.min (List.map snd populationWithFitness)
+    let mostFitIndividual (populationWithFitness: ('a * float32) list) = List.maxBy snd populationWithFitness
+    let averageFitness (populationWithFitness: ('a * float32) list) = List.average (List.map snd populationWithFitness)
+    let maximumFitness (populationWithFitness: ('a * float32) list) = List.max (List.map snd populationWithFitness)
+    let minimumFitness (populationWithFitness: ('a * float32) list) = List.min (List.map snd populationWithFitness)

@@ -5,7 +5,7 @@ open Random
 
 module Characters =
 
-    let generateCharacter maxCharValue = Convert.ToChar(Random.random.Next(maxCharValue + 1))
+    let generateCharacter maxCharValue = Convert.ToChar(Random.generateInt(maxCharValue + 1))
 
     let charactersList (str:string) =
         if str = null then raise (ArgumentNullException("str"))

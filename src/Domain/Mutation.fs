@@ -1,7 +1,7 @@
 ﻿namespace StudioDonder.HelloGeneticAlgorithm.Domain
 
-open StudioDonder.HelloGeneticAlgorithm.Domain.Characters
 open System
+open Characters
 open Random
 
 module Mutation =
@@ -26,5 +26,5 @@ module Mutation =
         if str = null then raise (ArgumentNullException("str"))
         if str.Length = 0 then raise (ArgumentException("The string to mutate must not have length zero."))
         if doesNotMeetProbability probability then str 
-        else mutateCharacterAtIndex (random.Next(str.Length)) str    
+        else mutateCharacterAtIndex (Random.generateInt(str.Length)) str    
             
