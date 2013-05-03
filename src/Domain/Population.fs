@@ -5,9 +5,27 @@ open System
 
 module Population =
 
-    let generateIndividual length = List.fold (fun acc elem -> acc + (generateCharacter 127).ToString()) "" [1..length]
+    type Fitness = float
+    type Individual = string
 
-    let generate length size = List.init size (fun index -> generateIndividual length)
+    type IndividualWithFitness = {
+        Individual: Individual
+        Fitness: Fitness
+    }
+
+    type Population = Individual list
+
+    type PopulationWithFitness = {
+        Individuals: IndividualWithFitness list
+        MostFitIndividual: IndividualWithFitness
+        AverageFitness: Fitness
+        MaximumFitness: Fitness
+        MinimumFitness: Fitness
+    }
+    
+    let generateIndividual length : Individual = List.fold (fun acc elem -> acc + (generateCharacter 127).ToString()) "" [1..length]
+
+    let generate length size : Population = List.init size (fun index -> generateIndividual length)
 
     let evolve crossover mutation parents = 
         if List.length parents % 2 = 1 then raise (ArgumentException("The parents list must be of even length."))
