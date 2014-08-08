@@ -7,11 +7,6 @@ open Xunit.Extensions
 type ListTests() =  
 
     [<Fact>]
-    member this.takeRandomElementReturnsRandomElement() =        
-        let randomElements = List.fold (fun acc element -> (List.takeRandom 4 [1..10]) :: acc) [] [1..20]         
-        Assert.True(Seq.distinct randomElements |> Seq.length > 1)
-
-    [<Fact>]
     member this.takeRandomElementReturnsSpecifiedNumberOfRandomElements() =        
         let randomElements = List.takeRandom 4 [1..10]
         Assert.Equal(4, List.length randomElements)

@@ -1,12 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Console", "src\Console\Console.fsproj", "{A345287A-D90D-47CC-8096-4E110436C584}"
-EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Domain", "src\Domain\Domain.fsproj", "{9212EFEC-42F6-4D0D-A314-0455BD3746B0}"
-EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Domain.Tests", "tests\Domain.Tests\Domain.Tests.fsproj", "{053F659D-1BE6-4700-817E-C5536580CE1C}"
-EndProject
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{14DCA2A8-01DF-435D-ABC6-67CE2FDF6CBD}"
 	ProjectSection(SolutionItems) = preProject
 		LICENSE.md = LICENSE.md
@@ -19,6 +15,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{0371C8
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Console", "src\Console\Console.fsproj", "{A345287A-D90D-47CC-8096-4E110436C584}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Domain", "src\Domain\Domain.fsproj", "{9212EFEC-42F6-4D0D-A314-0455BD3746B0}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Domain.Tests", "tests\Domain.Tests\Domain.Tests.fsproj", "{053F659D-1BE6-4700-817E-C5536580CE1C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Website", "src\Website\Website.csproj", "{74E91CAA-B569-45A5-8B64-999EDDD70820}"
 EndProject
