@@ -1,5 +1,7 @@
 # Hello Genetic Algorithm
 
+[![Build status](https://ci.appveyor.com/api/projects/status/8vn72gr0c470cbja)](https://ci.appveyor.com/project/ErikSchierboom/hellogeneticalgorithm)
+
 ## Introduction
 This project contains an implementation of a [generic algorithm](http://en.wikipedia.org/wiki/Genetic_algorithm) that allows text to be evolved from random strings using a very simple genetic algorithm. The implementation is done in F#, which is a functional language that is very well suited for this type of problems.
 
