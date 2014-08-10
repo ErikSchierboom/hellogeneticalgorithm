@@ -1,5 +1,7 @@
 # Hello Genetic Algorithm
 
+[![Build status](https://ci.appveyor.com/api/projects/status/8vn72gr0c470cbja)](https://ci.appveyor.com/project/ErikSchierboom/hellogeneticalgorithm)
+
 ## Introduction
 This project contains an implementation of a [generic algorithm](http://en.wikipedia.org/wiki/Genetic_algorithm) that allows text to be evolved from random strings using a very simple genetic algorithm. The implementation is done in F#, which is a functional language that is very well suited for this type of problems.
 
@@ -25,18 +27,22 @@ The website is implemented as a hybrid website; part C# and part F#. The **Websi
 
 Writing the controllers in F# instead of C# is both a blessing and a curse. On the plus side, you get controllers that look a lot cleaner. Check out the definition of the Index action:
 
-    [<HttpGet>]
-    member this.Index () =        
-        let model = new HomeIndexViewModel()
-        this.View(model) :> ActionResult
+```F#
+[<HttpGet>]
+member this.Index () =        
+    let model = new HomeIndexViewModel()
+    this.View(model) :> ActionResult
+```
 
 Furthermore, it of course allows you to easily integrate with other F# code, in our case our domain logic that defines the genetic algorithm implementation. 
 
 The downside is mainly that ASP.NET MVC works exclusively with classes. This problem became most apparent for us when we tried to render the output of our genetic algorithm in our website. We use Razor as our view engine, and Razor expects a class when you want to have a type-safe view. As our genetic algorithm outputs data structures that are specific to F#, Razor could not easily handle them. Therefore, we defined classes  for our view models (which Razor could handle happily) and converted our F# data structures to instances of these view model classes. An example of this is where we convert a tuple describing an individual and its fitness to a class:
 
-    type IndividualViewModel(individual: (string * float32)) =
-        member this.Value with get() = fst individual
-        member this.Fitness with get() = snd individual
+```F#
+type IndividualViewModel(individual: (string * float32)) =
+    member this.Value with get() = fst individual
+    member this.Fitness with get() = snd individual
+```
 
 The end result is quite nice. You can define most of your website's logic in F# using only some simple conversions to translate objects from F# space to C# space. 
 

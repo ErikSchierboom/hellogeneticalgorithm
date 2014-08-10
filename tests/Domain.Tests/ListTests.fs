@@ -11,11 +11,6 @@ type ListTests() =
         let randomElements = List.takeRandom 10 [1..1000]
         Assert.True(Seq.distinct randomElements |> Seq.length > 1)
 
-    [<Fact>]
-    member this.takeRandomElementReturnsSpecifiedNumberOfRandomElements() =        
-        let randomElements = List.takeRandom 4 [1..10]
-        Assert.Equal(4, List.length randomElements)
-
     [<Fact>]  
     member this.takeRandomWithSizeIsZeroThrowsArgumentOutOfRangeException() =
         Assert.Throws<ArgumentOutOfRangeException>(fun() -> List.takeRandom 0 [2; 3; 4] |> ignore)
