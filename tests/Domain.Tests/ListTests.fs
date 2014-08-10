@@ -8,7 +8,7 @@ type ListTests() =
 
     [<Fact>]
     member this.takeRandomElementReturnsRandomElement() =        
-        let randomElements = List.fold (fun acc element -> (List.takeRandom 4 [1..10]) :: acc) [] [1..20]         
+        let randomElements = List.takeRandom 10 [1..1000]
         Assert.True(Seq.distinct randomElements |> Seq.length > 1)
 
     [<Fact>]
