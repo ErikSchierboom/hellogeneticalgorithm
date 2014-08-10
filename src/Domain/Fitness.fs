@@ -3,6 +3,7 @@
 open Characters
 open Random
 open System
+open Types
 
 module Fitness =
     

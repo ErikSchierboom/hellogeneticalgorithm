@@ -2,18 +2,16 @@
 
 open Characters
 open System
+open Types
 
 module Population =
 
-    type Fitness = float
-    type Individual = string
+    type Population = Individual list
 
     type IndividualWithFitness = {
         Individual: Individual
         Fitness: Fitness
     }
-
-    type Population = Individual list
 
     type PopulationWithFitness = {
         Individuals: IndividualWithFitness list

@@ -2,23 +2,26 @@
 
 open System
 open Random
+open Types
 
 module Crossover =
 
-    let onePoint point (parent1:string) (parent2:string) = 
+    type CrossoverPoint = int
+
+    let onePoint (point:CrossoverPoint) (parent1:Parent) (parent2:Parent) : Children = 
         if parent1 = null then raise (ArgumentNullException("parent1"))
         if parent2 = null then raise (ArgumentNullException("parent2"))
         if not (parent1.Length = parent2.Length) then raise (ArgumentException("The parents must be of equal length."))
         parent1.Substring(0, point) + parent2.Substring(point), parent2.Substring(0, point) + parent1.Substring(point)
 
-    let twoPoint point1 point2 (parent1:string) (parent2:string) = 
+    let twoPoint (point1:CrossoverPoint) (point2:CrossoverPoint) (parent1:Parent) (parent2:Parent) : Children = 
         if parent1 = null then raise (ArgumentNullException("parent1"))
         if parent2 = null then raise (ArgumentNullException("parent2"))
         if not (parent1.Length = parent2.Length) then raise (ArgumentException("The parents must be of equal length."))
         parent1.Substring(0, point1) + parent2.Substring(point1, point2 - point1) + parent1.Substring(point2), 
         parent2.Substring(0, point1) + parent1.Substring(point1, point2 - point1) + parent2.Substring(point2)
 
-    let uniform probability (parent1:string) (parent2:string) = 
+    let uniform (probability:Probability) (parent1:Parent) (parent2:Parent) : Children = 
         if parent1 = null then raise (ArgumentNullException("parent1"))
         if parent2 = null then raise (ArgumentNullException("parent2"))
         if not (parent1.Length = parent2.Length) then raise (ArgumentException("The parents must be of equal length."))

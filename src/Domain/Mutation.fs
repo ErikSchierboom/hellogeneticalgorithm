@@ -3,8 +3,11 @@
 open System
 open Characters
 open Random
+open Types
 
 module Mutation =
+
+    type MutationIndex = int
 
     let mutateCharacter (c:char) =
         if c > char 127 then raise (ArgumentException("The character must be an ASCII character (range [0..127])"))
@@ -15,16 +18,16 @@ module Mutation =
                     then char (numericCharacterValue c - uint16 1) 
                     else char (numericCharacterValue c + uint16 1)
 
-    let mutateCharacterAtIndex index (str:string) =
-        if str = null then raise (ArgumentNullException("str"))
-        if str.Length = 0 then raise (ArgumentException("The string to mutate must not have length zero."))
-        let chars = str.ToCharArray()
-        chars.[index] <- mutateCharacter chars.[index]
+    let mutateCharacterAtIndex (mutationIndex:MutationIndex) (individual:Individual) =
+        if individual = null then raise (ArgumentNullException("individual"))
+        if individual.Length = 0 then raise (ArgumentException("The individual to mutate must not have length zero."))
+        let chars = individual.ToCharArray()
+        chars.[mutationIndex] <- mutateCharacter chars.[mutationIndex]
         new string(chars)
 
-    let mutate (probability:float) (str:string) =
-        if str = null then raise (ArgumentNullException("str"))
-        if str.Length = 0 then raise (ArgumentException("The string to mutate must not have length zero."))
-        if doesNotMeetProbability probability then str 
-        else mutateCharacterAtIndex (Random.generateInt(str.Length)) str    
+    let mutate (probability:Probability) (individual:Individual) =
+        if individual = null then raise (ArgumentNullException("individual"))
+        if individual.Length = 0 then raise (ArgumentException("The individual to mutate must not have length zero."))
+        if doesNotMeetProbability probability then individual 
+        else mutateCharacterAtIndex (Random.generateInt(individual.Length)) individual    
             

@@ -52,6 +52,7 @@
   <Import Project="$(FSharpTargetsPath)" Condition="Exists('$(FSharpTargetsPath)')" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <ItemGroup>
+    <Compile Include="Types.fs" />
     <Compile Include="Random.fs" />
     <Compile Include="List.fs" />
     <Compile Include="Characters.fs" />
