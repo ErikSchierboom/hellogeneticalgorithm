@@ -9,7 +9,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Core", "src\Core\Core.fsproj", "{D5E4B2BE-F6D5-4C12-8502-66F6BB6A8B27}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Core.Tests", "tests\Core.Tests\Core.Tests.fsproj", "{E27C5CE1-5AA4-413A-B4F5-A7F0B632250E}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D5E4B2BE-F6D5-4C12-8502-66F6BB6A8B27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5E4B2BE-F6D5-4C12-8502-66F6BB6A8B27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5E4B2BE-F6D5-4C12-8502-66F6BB6A8B27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5E4B2BE-F6D5-4C12-8502-66F6BB6A8B27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E27C5CE1-5AA4-413A-B4F5-A7F0B632250E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E27C5CE1-5AA4-413A-B4F5-A7F0B632250E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E27C5CE1-5AA4-413A-B4F5-A7F0B632250E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E27C5CE1-5AA4-413A-B4F5-A7F0B632250E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
