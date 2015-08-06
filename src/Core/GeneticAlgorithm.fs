@@ -11,12 +11,12 @@ type Chromosome = {
     Fitness: float
 }
 
-module Genes =
-
-    let mutate gene = if gene = Gene.Zero then Gene.One else Gene.Zero
-
 module Chromosomes =
 
     let map f x = { x with Genes = NonEmptyList.map f x.Genes }
 
-    let mutate shouldMutateGene mutateGene chromosome = map (fun x -> if shouldMutateGene x then mutateGene x else x) chromosome  
+module Mutation =
+
+    let mutateGene gene = if gene = Gene.Zero then Gene.One else Gene.Zero
+
+    let mutateChromosome shouldMutateGene mutateGene chromosome = Chromosomes.map (fun x -> if shouldMutateGene x then mutateGene x else x) chromosome  
